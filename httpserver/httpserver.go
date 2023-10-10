@@ -7,6 +7,7 @@ import (
 	"io/fs"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/pkg/browser"
 	"github.com/senzing/demo-entity-search/entitysearchservice"
@@ -38,6 +39,7 @@ type HttpServerImpl struct {
 	ObserverOrigin                 string
 	Observers                      []observer.Observer
 	OpenApiSpecificationSpec       []byte
+	ReadHeaderTimeout              time.Duration
 	SenzingEngineConfigurationJson string
 	SenzingModuleName              string
 	SenzingVerboseLogging          int
@@ -144,8 +146,9 @@ func (httpServer *HttpServerImpl) Serve(ctx context.Context) error {
 	userMessage = fmt.Sprintf("%sStarting server on interface:port '%s'...\n", userMessage, listenOnAddress)
 	fmt.Println(userMessage)
 	server := http.Server{
-		Addr:    listenOnAddress,
-		Handler: addIncomingRequestLogging(rootMux),
+		Addr:              listenOnAddress,
+		Handler:           addIncomingRequestLogging(rootMux),
+		ReadHeaderTimeout: httpServer.ReadHeaderTimeout,
 	}
 
 	// Start a web browser.  Unless disabled.

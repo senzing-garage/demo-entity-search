@@ -5,6 +5,7 @@ package cmd
 import (
 	"context"
 	"os"
+	"time"
 
 	"github.com/senzing/demo-entity-search/httpserver"
 	"github.com/senzing/go-cmdhelping/cmdhelper"
@@ -64,9 +65,10 @@ func PreRun(cobraCommand *cobra.Command, args []string) {
 func RunE(_ *cobra.Command, _ []string) error {
 	ctx := context.Background()
 	httpServer := &httpserver.HttpServerImpl{
-		EnableAll:     viper.GetBool(option.EnableAll.Arg),
-		ServerAddress: viper.GetString(option.ServerAddress.Arg),
-		ServerPort:    viper.GetInt(option.HttpPort.Arg),
+		EnableAll:         viper.GetBool(option.EnableAll.Arg),
+		ReadHeaderTimeout: 60 * time.Second,
+		ServerAddress:     viper.GetString(option.ServerAddress.Arg),
+		ServerPort:        viper.GetInt(option.HttpPort.Arg),
 	}
 	return httpServer.Serve(ctx)
 }
