@@ -1,12 +1,9 @@
-package examplepackage
+package entitysearchservice
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 // ----------------------------------------------------------------------------
@@ -41,11 +38,4 @@ func teardown() error {
 // Test interface functions
 // ----------------------------------------------------------------------------
 
-func TestExamplePackageImpl_SaySomething(test *testing.T) {
-	ctx := context.TODO()
-	testObject := &ExamplePackageImpl{
-		Something: "I'm here",
-	}
-	err := testObject.SaySomething(ctx)
-	assert.Nil(test, err)
-}
+func TestHttpServiceImpl_Handler(test *testing.T) {}

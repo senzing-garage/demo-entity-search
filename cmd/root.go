@@ -6,10 +6,9 @@ import (
 	"context"
 	"os"
 
-	"github.com/senzing/demo-entity-search/examplepackage"
+	"github.com/senzing/demo-entity-search/httpserver"
 	"github.com/senzing/go-cmdhelping/cmdhelper"
 	"github.com/senzing/go-cmdhelping/option"
-	"github.com/senzing/go-cmdhelping/option/optiontype"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -26,19 +25,10 @@ demo-entity-search long description.
 // Context variables
 // ----------------------------------------------------------------------------
 
-var SomethingToSay = option.ContextVariable{
-	Arg:     "something-to-say",
-	Default: option.OsLookupEnvString("SENZING_TOOLS_SOMETHING_TO_SAY", "Main says 'Hi!'"),
-	Envar:   "SENZING_TOOLS_SOMETHING_TO_SAY",
-	Help:    "Just a phrase to say [%s]",
-	Type:    optiontype.String,
-}
-
 var ContextVariablesForMultiPlatform = []option.ContextVariable{
-	option.Configuration,
-	option.EngineConfigurationJson,
-	option.LogLevel,
-	SomethingToSay,
+	option.EnableAll,
+	option.HttpPort,
+	option.ServerAddress,
 }
 
 var ContextVariables = append(ContextVariablesForMultiPlatform, ContextVariablesForOsArch...)
@@ -73,10 +63,12 @@ func PreRun(cobraCommand *cobra.Command, args []string) {
 // Used in construction of cobra.Command
 func RunE(_ *cobra.Command, _ []string) error {
 	ctx := context.Background()
-	examplePackage := &examplepackage.ExamplePackageImpl{
-		Something: viper.GetString(SomethingToSay.Arg),
+	httpServer := &httpserver.HttpServerImpl{
+		EnableAll:     viper.GetBool(option.EnableAll.Arg),
+		ServerAddress: viper.GetString(option.ServerAddress.Arg),
+		ServerPort:    viper.GetInt(option.HttpPort.Arg),
 	}
-	return examplePackage.SaySomething(ctx)
+	return httpServer.Serve(ctx)
 }
 
 // Used in construction of cobra.Command
