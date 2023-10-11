@@ -6,7 +6,7 @@ One or two sentence synopsis of the package...
 One or two paragraph overview of the package...
 (This page describes the nature of the individual package.)
 
-More information at https://github.com/senzing/demo-entity-search
+More information at https://github.com/senzing/serve-http
 
 # Another Header
 
@@ -23,7 +23,7 @@ Examples of use can be seen in the examplepackage_test.go files.
 	import (
 		fmt
 
-		"github.com/senzing/demo-entity-search/examplepackage"
+		"github.com/senzing/serve-http/examplepackage"
 	)
 
 	func main() {
@@ -37,4 +37,4 @@ Examples of use can be seen in the examplepackage_test.go files.
 		}
 	}
 */
-package examplepackage
+package httpserver
