@@ -32,7 +32,7 @@ package-osarch-specific:
 
 .PHONY: run-osarch-specific
 run-osarch-specific:
-	@go run main.go  --enable-all
+	@go run main.go
 
 
 .PHONY: setup-osarch-specific
