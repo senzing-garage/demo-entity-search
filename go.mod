@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
-	github.com/senzing/go-cmdhelping v0.1.8
+	github.com/senzing/go-cmdhelping v0.1.9
 	github.com/senzing/go-observing v0.2.8
 	github.com/senzing/go-rest-api-service v0.0.6
 	github.com/sirupsen/logrus v1.9.3

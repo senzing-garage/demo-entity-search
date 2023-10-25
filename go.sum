@@ -208,10 +208,10 @@ github.com/senzing/g2-sdk-json-type-definition v0.1.1 h1:o0TRW8jDXTryOKQxI8aID7q
 github.com/senzing/g2-sdk-json-type-definition v0.1.1/go.mod h1:GAd5aNUp/hwnnHjTwRylmVeNyvLHK+QaeJ25ovuUsJI=
 github.com/senzing/g2-sdk-proto/go v0.0.0-20230925212041-8259762ae97e h1:NwstP3Ulj3CC3Ua/Mcmx/bdJEUiHulurkd7t1kTSSCQ=
 github.com/senzing/g2-sdk-proto/go v0.0.0-20230925212041-8259762ae97e/go.mod h1:xfWmP0w1uAzezuXlpZ7CAZfPx/RcG+nh8J+Hlq3Y3cM=
-github.com/senzing/go-cmdhelping v0.1.8 h1:3E1qjrr9JxwY71rmVbuuFIwHENYMX9sCkb0sLRUzBuo=
-github.com/senzing/go-cmdhelping v0.1.8/go.mod h1:kgOPFyV2bjvNlGEqvq3gzZAZHp0RVuGfm2maftgJ0Pw=
-github.com/senzing/go-common v0.3.0 h1:xigayoS3QKW4OUL57Rfo15E3IWdADvAi4EiSyJDP4q0=
-github.com/senzing/go-common v0.3.0/go.mod h1:zD3JR5hQ/nAsWlXwMQbX/BG1r/cftg0GiE3CALvhRpk=
+github.com/senzing/go-cmdhelping v0.1.9 h1:hUU7YH7BPeh8BmrH1WlrS/EfXmTeX3RY2zEv7rUM/6M=
+github.com/senzing/go-cmdhelping v0.1.9/go.mod h1:n2BQAfW7+Er8Y4xobhNUZkuP1PWnHKsdqRxTC/IE4vc=
+github.com/senzing/go-common v0.3.1 h1:xeUwnd4sB4k9fa6UyE6GCx9uvWIxsl/09miBpdon2IY=
+github.com/senzing/go-common v0.3.1/go.mod h1:PP9drKo/ouIbtB4+eHMT6hDeUoMX1SVuU1uqklZGgLo=
 github.com/senzing/go-logging v1.3.2 h1:V7512RMXi6yiHAzQeCXyQhkEHTtlUNvMuIyaQicDIDE=
 github.com/senzing/go-logging v1.3.2/go.mod h1:7vM4AELb1jjUaGUJFv+CPTp694jcZaCbJVShghOiUa8=
 github.com/senzing/go-messaging v1.3.2 h1:emr1mt4iv/E4t2gXi6PYz1h/j1r9nTG7GpQ77ZdoOh8=
