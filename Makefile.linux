@@ -4,6 +4,8 @@
 # Variables
 # -----------------------------------------------------------------------------
 
+LD_LIBRARY_PATH ?= /opt/senzing/g2/lib
+SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@/tmp/sqlite/G2C.db
 
 # -----------------------------------------------------------------------------
 # OS-ARCH specific targets
@@ -17,6 +19,7 @@ build-osarch-specific: linux/amd64
 clean-osarch-specific:
 	@rm -rf $(TARGET_DIRECTORY) || true
 	@rm -f $(GOPATH)/bin/$(PROGRAM_NAME) || true
+	@rm -rf /tmp/sqlite || true
 
 
 .PHONY: hello-world-osarch-specific
@@ -31,7 +34,9 @@ run-osarch-specific:
 
 .PHONY: setup-osarch-specific
 setup-osarch-specific:
-	@echo "No setup required."
+	@mkdir /tmp/sqlite
+	@cp testdata/sqlite/G2C.db /tmp/sqlite/G2C.db
+	@mkdir -p $(TARGET_DIRECTORY)/$(GO_OS)-$(GO_ARCH) || true
 
 
 .PHONY: test-osarch-specific
