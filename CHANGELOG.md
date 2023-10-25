@@ -10,6 +10,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [0.0.2] - 2023-10-25
+
+### Added to 0.0.2
+
+- Refactor to [template-go](https://github.com/Senzing/template-go)
+- Update dependencies
+  - github.com/senzing/go-cmdhelping v0.1.9
+  - github.com/senzing/go-observing v0.2.8
+  - github.com/senzing/go-rest-api-service v0.1.0
+  - google.golang.org/grpc v1.59.0
+
 ## [0.0.1] - 2023-10-10
 
 ### Added to 0.0.1
