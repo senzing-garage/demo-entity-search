@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [0.0.3] - 2023-11-02
+
+### Added to 0.0.3
+
+- Update dependencies
+  - github.com/senzing/go-rest-api-service v0.1.1
+
 ## [0.0.2] - 2023-10-25
 
 ### Added to 0.0.2
