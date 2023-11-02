@@ -1,15 +1,15 @@
-// 0.0.3
-// Created by make-go-github-file.yaml on Wed Oct 25 19:46:47 UTC 2023
+// 0.0.4
+// Created by make-go-github-file.yaml on Thu Nov  2 22:30:07 UTC 2023
 //
 //lint:file-ignore U1000 Ignore all unused code, it's generated
 package cmd
 
 var (
-	githubDate           string = "2023-10-25"
+	githubDate           string = "2023-11-02"
 	githubIteration      string = "0"
-	githubRef            string = "refs/tags/0.0.3"
-	githubRefName        string = "0.0.3"
+	githubRef            string = "refs/tags/0.0.4"
+	githubRefName        string = "0.0.4"
 	githubRepository     string = "Senzing/demo-entity-search"
 	githubRepositoryName string = "demo-entity-search"
-	githubVersion        string = "0.0.3"
+	githubVersion        string = "0.0.4"
 )
