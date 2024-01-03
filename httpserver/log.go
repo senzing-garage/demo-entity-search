@@ -3,7 +3,7 @@ package httpserver
 import (
 	"net/http"
 
-	"github.com/senzing/demo-entity-search/internal/log"
+	"github.com/senzing-garage/demo-entity-search/internal/log"
 )
 
 // createRequestLog returns a logger with relevant request fields

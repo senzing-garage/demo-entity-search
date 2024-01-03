@@ -1,12 +1,12 @@
-module github.com/senzing/demo-entity-search
+module github.com/senzing-garage/demo-entity-search
 
 go 1.21
 
 require (
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
-	github.com/senzing/go-cmdhelping v0.1.9
-	github.com/senzing/go-observing v0.2.8
-	github.com/senzing/go-rest-api-service v0.1.1
+	github.com/senzing-garage/go-cmdhelping v0.1.9
+	github.com/senzing-garage/go-observing v0.2.8
+	github.com/senzing-garage/go-rest-api-service v0.1.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.18.2
@@ -38,14 +38,14 @@ require (
 	github.com/sagikazarmark/locafero v0.4.0 // indirect
 	github.com/sagikazarmark/slog-shim v0.1.0 // indirect
 	github.com/segmentio/asm v1.2.0 // indirect
-	github.com/senzing/g2-sdk-go v0.7.4 // indirect
-	github.com/senzing/g2-sdk-go-base v0.3.3 // indirect
-	github.com/senzing/g2-sdk-go-grpc v0.4.3 // indirect
-	github.com/senzing/g2-sdk-json-type-definition v0.1.1 // indirect
-	github.com/senzing/g2-sdk-proto/go v0.0.0-20231016131354-0d0fba649357 // indirect
-	github.com/senzing/go-logging v1.3.3 // indirect
-	github.com/senzing/go-messaging v1.3.3 // indirect
-	github.com/senzing/go-sdk-abstract-factory v0.4.3 // indirect
+	github.com/senzing-garage/g2-sdk-go v0.7.4 // indirect
+	github.com/senzing-garage/g2-sdk-go-base v0.3.3 // indirect
+	github.com/senzing-garage/g2-sdk-go-grpc v0.4.3 // indirect
+	github.com/senzing-garage/g2-sdk-json-type-definition v0.1.1 // indirect
+	github.com/senzing-garage/g2-sdk-proto/go v0.0.0-20231016131354-0d0fba649357 // indirect
+	github.com/senzing-garage/go-logging v1.3.3 // indirect
+	github.com/senzing-garage/go-messaging v1.3.3 // indirect
+	github.com/senzing-garage/go-sdk-abstract-factory v0.4.3 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
 	github.com/spf13/cast v1.6.0 // indirect
