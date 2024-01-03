@@ -10,6 +10,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [0.1.0] - 2024-01-03
+
+### Changed in 0.1.0
+
+- Renamed module to `github.com/senzing-garage/demo-entity-search`
+- Refactor to [template-go](https://github.com/senzing-garage/template-go)
+- Update dependencies
+  - github.com/spf13/cobra v1.8.0
+  - github.com/spf13/viper v1.18.2
+  - google.golang.org/grpc v1.60.1
+
 ## [0.0.3] - 2023-11-02
 
 ### Added to 0.0.3
