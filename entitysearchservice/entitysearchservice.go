@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"text/template"
 
-	"github.com/senzing/demo-entity-search/internal/log"
+	"github.com/senzing-garage/demo-entity-search/internal/log"
 )
 
 // ----------------------------------------------------------------------------

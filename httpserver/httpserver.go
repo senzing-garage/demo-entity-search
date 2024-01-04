@@ -10,10 +10,10 @@ import (
 	"time"
 
 	"github.com/pkg/browser"
-	"github.com/senzing/demo-entity-search/entitysearchservice"
-	"github.com/senzing/go-observing/observer"
-	"github.com/senzing/go-rest-api-service/senzingrestapi"
-	"github.com/senzing/go-rest-api-service/senzingrestservice"
+	"github.com/senzing-garage/demo-entity-search/entitysearchservice"
+	"github.com/senzing-garage/go-observing/observer"
+	"github.com/senzing-garage/go-rest-api-service/senzingrestapi"
+	"github.com/senzing-garage/go-rest-api-service/senzingrestservice"
 	"google.golang.org/grpc"
 )
 
