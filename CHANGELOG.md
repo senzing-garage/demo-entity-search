@@ -10,6 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [0.1.1] - 2024-01-30
+
+### Changed in 0.1.1
+
+- Update dependencies
+  - github.com/senzing-garage/go-rest-api-service v0.9.1
+  - google.golang.org/grpc v1.61.0
+
 ## [0.1.0] - 2024-01-03
 
 ### Changed in 0.1.0
