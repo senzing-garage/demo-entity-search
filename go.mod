@@ -6,7 +6,7 @@ require (
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/senzing-garage/go-cmdhelping v0.2.0
 	github.com/senzing-garage/go-observing v0.3.0
-	github.com/senzing-garage/go-rest-api-service v0.9.0
+	github.com/senzing-garage/go-rest-api-service v0.9.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.18.2
@@ -25,7 +25,7 @@ require (
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/uuid v1.5.0 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
@@ -38,14 +38,14 @@ require (
 	github.com/sagikazarmark/locafero v0.4.0 // indirect
 	github.com/sagikazarmark/slog-shim v0.1.0 // indirect
 	github.com/segmentio/asm v1.2.0 // indirect
+	github.com/senzing-garage/g2-sdk-go v0.9.0 // indirect
+	github.com/senzing-garage/g2-sdk-go-base v0.5.0 // indirect
+	github.com/senzing-garage/g2-sdk-go-grpc v0.6.0 // indirect
 	github.com/senzing-garage/g2-sdk-json-type-definition v0.2.0 // indirect
+	github.com/senzing-garage/g2-sdk-proto/go v0.0.0-20240126210601-d02d3beb81d4 // indirect
 	github.com/senzing-garage/go-logging v1.4.0 // indirect
 	github.com/senzing-garage/go-messaging v1.4.0 // indirect
-	github.com/senzing/g2-sdk-go v0.8.0 // indirect
-	github.com/senzing/g2-sdk-go-base v0.4.0 // indirect
-	github.com/senzing/g2-sdk-go-grpc v0.5.0 // indirect
-	github.com/senzing/g2-sdk-proto/go v0.0.0-20240115134958-8e806054968d // indirect
-	github.com/senzing/go-sdk-abstract-factory v0.5.0 // indirect
+	github.com/senzing-garage/go-sdk-abstract-factory v0.6.0 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
 	github.com/spf13/cast v1.6.0 // indirect
@@ -61,7 +61,7 @@ require (
 	golang.org/x/sync v0.6.0 // indirect
 	golang.org/x/sys v0.16.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240116215550-a9fa1716bcac // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240125205218-1f4bbc51befe // indirect
 	google.golang.org/protobuf v1.32.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

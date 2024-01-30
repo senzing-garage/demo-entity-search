@@ -15,7 +15,7 @@ Heck, it may not even be appropriate for your application of Senzing!
 ## Synopsis
 
 `demo-entity-search` is a command in the
-[senzing-tools](https://github.com/Senzing/senzing-tools)
+[senzing-tools](https://github.com/senzing-garage/senzing-tools)
 suite of tools.
 This command is a demonstration of entity search.
 
