@@ -9,7 +9,7 @@ import (
 // Types
 // ----------------------------------------------------------------------------
 
-// The HttpService interface...
-type HttpService interface {
+// The HTTPService interface...
+type HTTPService interface {
 	Handler(ctx context.Context) *http.ServeMux
 }

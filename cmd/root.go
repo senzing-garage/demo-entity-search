@@ -10,6 +10,7 @@ import (
 	"github.com/senzing-garage/demo-entity-search/httpserver"
 	"github.com/senzing-garage/go-cmdhelping/cmdhelper"
 	"github.com/senzing-garage/go-cmdhelping/option"
+	"github.com/senzing-garage/go-cmdhelping/option/optiontype"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -22,13 +23,22 @@ demo-entity-search long description.
     `
 )
 
+var avoidServe = option.ContextVariable{
+	Arg:     "avoid-serving",
+	Default: option.OsLookupEnvBool("SENZING_TOOLS_AVOID_SERVING", false),
+	Envar:   "SENZING_TOOLS_AVOID_SERVING",
+	Help:    "Avoid serving.  For testing only. [%s]",
+	Type:    optiontype.Bool,
+}
+
 // ----------------------------------------------------------------------------
 // Context variables
 // ----------------------------------------------------------------------------
 
 var ContextVariablesForMultiPlatform = []option.ContextVariable{
+	avoidServe,
 	option.EnableAll,
-	option.HttpPort,
+	option.HTTPPort,
 	option.ServerAddress,
 }
 
@@ -64,11 +74,12 @@ func PreRun(cobraCommand *cobra.Command, args []string) {
 // Used in construction of cobra.Command
 func RunE(_ *cobra.Command, _ []string) error {
 	ctx := context.Background()
-	httpServer := &httpserver.HttpServerImpl{
+	httpServer := &httpserver.BasicHTTPServer{
+		AvoidServing:      viper.GetBool(avoidServe.Arg),
 		EnableAll:         viper.GetBool(option.EnableAll.Arg),
 		ReadHeaderTimeout: 60 * time.Second,
 		ServerAddress:     viper.GetString(option.ServerAddress.Arg),
-		ServerPort:        viper.GetInt(option.HttpPort.Arg),
+		ServerPort:        viper.GetInt(option.HTTPPort.Arg),
 	}
 	return httpServer.Serve(ctx)
 }

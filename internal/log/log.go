@@ -1,7 +1,6 @@
 package log
 
 import (
-	"fmt"
 	"os"
 	"path"
 	"runtime"
@@ -30,48 +29,51 @@ type Log func(l ...interface{})
 // Log defines the function signature of the logger when called with format parameters
 type Logf func(s string, l ...interface{})
 
-var WithField,
-	WithFields = logger.WithField,
-	logger.WithFields
+var WithField = logger.WithField
+var WithFields = logger.WithFields
 
 // Trace logs at the Trace level
-var Trace,
-	// Debug logs at the Debug level
-	Debug,
-	// Info logs at the Info level
-	Info,
-	// Warn logs at the Warn level
-	Warn,
-	// Error logs at the Error level
-	Error,
-	Print Log = logger.Trace,
-	logger.Debug,
-	logger.Info,
-	logger.Warn,
-	logger.Error,
-	func(l ...interface{}) {
-		fmt.Println(l...)
-	}
+// var (
+// 	Trace,
+// 	// Debug logs at the Debug level
+// 	Debug,
+// 	// Info logs at the Info level
+// 	Info,
+// 	// Warn logs at the Warn level
+// 	Warn,
+// 	// Error logs at the Error level
+// 	Error,
+// 	Print Log = logger.Trace,
+// 		logger.Debug,
+// 		logger.Info,
+// 		logger.Warn,
+// 		logger.Error,
+// 		func(l ...interface{}) {
+// 			fmt.Println(l...)
+// 		}
+// )
 
 // Tracef logs at the trace level with formatting
-var Tracef,
-	// Debugf logs at the debug level with formatting
-	Debugf,
-	// Infof logs at the info level with formatting
-	Infof,
-	// Warnf logs at the warn level with formatting
-	Warnf,
-	// Errorf logs at the error level with formatting
-	Errorf,
-	Printf Logf = logger.Tracef,
-	logger.Debugf,
-	logger.Infof,
-	logger.Warnf,
-	logger.Errorf,
-	func(s string, l ...interface{}) {
-		fmt.Printf(s, l...)
-		fmt.Printf("\n")
-	}
+// var (
+// 	Tracef,
+// 	// Debugf logs at the debug level with formatting
+// 	Debugf,
+// 	// Infof logs at the info level with formatting
+// 	Infof,
+// 	// Warnf logs at the warn level with formatting
+// 	Warnf,
+// 	// Errorf logs at the error level with formatting
+// 	Errorf,
+// 	Printf Logf = logger.Tracef,
+// 		logger.Debugf,
+// 		logger.Infof,
+// 		logger.Warnf,
+// 		logger.Errorf,
+// 		func(s string, l ...interface{}) {
+// 			fmt.Printf(s, l...)
+// 			fmt.Printf("\n")
+// 		}
+// )
 
 func Init(
 	logFormat Format,
