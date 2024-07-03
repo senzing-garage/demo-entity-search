@@ -8,7 +8,7 @@ import (
 // Types
 // ----------------------------------------------------------------------------
 
-// The HttpServer interface...
-type HttpServer interface {
+// The HTTPServer interface...
+type HTTPServer interface {
 	Serve(ctx context.Context) error
 }
