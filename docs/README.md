@@ -1,5 +1,8 @@
 # demo-entity-search
 
-Placeholder for [GitHub pages](https://pages.github.com/).
+Placeholder for [GitHub pages].
 
-See [https://hub.senzing.com/demo-entity-search](https://hub.senzing.com/demo-entity-search).
+See [GitHub page].
+
+[GitHub page]: https://garage.senzing.com/demo-entity-search
+[GitHub pages]: https://pages.github.com/
