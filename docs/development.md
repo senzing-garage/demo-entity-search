@@ -183,41 +183,6 @@ Example:
 
     ```
 
-### Test DEB package on Ubuntu
-
-1. Determine if `demo-entity-search` is installed.
-   Example:
-
-    ```console
-    apt list --installed | grep demo-entity-search
-
-    ```
-
-1. :pencil2: Install `demo-entity-search`.
-   Example:
-
-    ```console
-    cd ${GIT_REPOSITORY_DIR}/target
-    sudo apt install ./demo-entity-search-0.0.0.deb
-
-    ```
-
-1. Run command.
-   Example:
-
-    ```console
-    demo-entity-search
-
-    ```
-
-1. Remove `demo-entity-search` from system.
-   Example:
-
-    ```console
-    sudo apt-get remove demo-entity-search
-
-    ```
-
 ## References
 
 [clone-repository]: https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/clone-repository.md
