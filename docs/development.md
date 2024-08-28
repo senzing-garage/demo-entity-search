@@ -13,7 +13,6 @@ These are "one-time tasks" which may already have been completed.
 1. The following software programs need to be installed:
     1. [git]
     1. [make]
-    1. [docker]
     1. [go]
 
 ## Install Senzing C library
@@ -222,7 +221,6 @@ Example:
 ## References
 
 [clone-repository]: https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/clone-repository.md
-[docker]: https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/docker.md
 [git]: https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/git.md
 [Go Reference Badge]: https://pkg.go.dev/badge/github.com/senzing-garage/template-go.svg
 [Go Reference]: https://pkg.go.dev/github.com/senzing-garage/template-go
