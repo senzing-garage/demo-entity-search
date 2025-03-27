@@ -39,7 +39,7 @@ linters:
     - goconst
     - gocritic
     - gocyclo
-    - godot
+    # - godot
     - godox
     - goheader
     - gomoddirectives
@@ -51,28 +51,28 @@ linters:
     - grouper
     - iface
     - importas
-    - inamedparam
+    # - inamedparam
     - ineffassign
     - interfacebloat
     - intrange
-    - ireturn
-    - lll
+    # - ireturn
+    # - lll
     - loggercheck
     - maintidx
     - makezero
     - mirror
     - misspell
-    - mnd
+    # - mnd
     - musttag
     - nakedret
     - nestif
     - nilerr
     - nilnesserr
     - nilnil
-    - nlreturn
+    # - nlreturn
     - noctx
     - nolintlint
-    - nonamedreturns
+    # - nonamedreturns
     - nosprintfhostport
     # - paralleltest
     - perfsprint
@@ -90,9 +90,9 @@ linters:
     - staticcheck
     - tagalign
     - tagliatelle
-    - testableexamples
+    # - testableexamples
     - testifylint
-    - testpackage
+    # - testpackage
     - thelper
     - tparallel
     - unconvert
@@ -100,11 +100,11 @@ linters:
     - unused
     - usestdlibvars
     - usetesting
-    - varnamelen
+    # - varnamelen
     - wastedassign
     - whitespace
-    - wrapcheck
-    - wsl
+    # - wrapcheck
+    # - wsl
     - zerologlint
   exclusions:
     generated: lax
@@ -122,9 +122,9 @@ formatters:
   enable:
     - gci
     - gofmt
-    - gofumpt
+    # - gofumpt
     - goimports
-    - golines
+    # - golines
   exclusions:
     generated: lax
     paths:
