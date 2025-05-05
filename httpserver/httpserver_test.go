@@ -8,6 +8,6 @@ import (
 // Test interface functions
 // ----------------------------------------------------------------------------
 
-func TestBasicHTTTPServer_Serve(test *testing.T) {
+func TestBasicHTTPServer_Serve(test *testing.T) {
 	_ = test
 }
