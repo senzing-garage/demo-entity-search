@@ -53,7 +53,8 @@ var static embed.FS
 // }
 
 // func getCreateLogger(connectionUUID string, r *http.Request) xtermjs.Logger {
-// 	createRequestLog(r, map[string]interface{}{"connection_uuid": connectionUUID}).Infof("created logger for connection '%s'", connectionUUID)
+// 	createRequestLog(r, map[string]interface{}{"connection_uuid": connectionUUID}).Infof(
+// "created logger for connection '%s'", connectionUUID)
 // 	return createRequestLog(nil, map[string]interface{}{"connection_uuid": connectionUUID})
 // }
 
@@ -61,7 +62,8 @@ var static embed.FS
 // Internal methods
 // ----------------------------------------------------------------------------
 
-// func (httpService *BasicHTTPService) populateStaticTemplate(responseWriter http.ResponseWriter, request *http.Request, filepath string, templateVariables TemplateVariables) {
+// func (httpService *BasicHTTPService) populateStaticTemplate(responseWriter http.ResponseWriter,
+// request *http.Request, filepath string, templateVariables TemplateVariables) {
 // 	_ = request
 
 // 	templateBytes, err := static.ReadFile(filepath)
@@ -107,6 +109,7 @@ func (httpService *BasicHTTPService) Handler(ctx context.Context) *http.ServeMux
 	if err != nil {
 		panic(err)
 	}
+
 	rootMux.Handle("/", http.StripPrefix("/", http.FileServer(http.FS(rootDir))))
 
 	return rootMux

@@ -11,16 +11,18 @@ import (
 	"github.com/senzing-garage/go-cmdhelping/cmdhelper"
 	"github.com/senzing-garage/go-cmdhelping/option"
 	"github.com/senzing-garage/go-cmdhelping/option/optiontype"
+	"github.com/senzing-garage/go-helpers/wraperror"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
 const (
-	Short string = "demo-entity-search short description"
-	Use   string = "demo-entity-search"
-	Long  string = `
+	Long string = `
 demo-entity-search long description.
     `
+	ReadHeaderTimeout        = 60
+	Short             string = "demo-entity-search short description"
+	Use               string = "demo-entity-search"
 )
 
 var avoidServe = option.ContextVariable{
@@ -82,11 +84,14 @@ func RunE(_ *cobra.Command, _ []string) error {
 	httpServer := &httpserver.BasicHTTPServer{
 		AvoidServing:      viper.GetBool(avoidServe.Arg),
 		EnableAll:         viper.GetBool(option.EnableAll.Arg),
-		ReadHeaderTimeout: 60 * time.Second,
+		ReadHeaderTimeout: ReadHeaderTimeout * time.Second,
 		ServerAddress:     viper.GetString(option.ServerAddress.Arg),
 		ServerPort:        viper.GetInt(option.HTTPPort.Arg),
 	}
-	return httpServer.Serve(ctx)
+
+	err := httpServer.Serve(ctx)
+
+	return wraperror.Errorf(err, "cmd.RunE error: %w", err)
 }
 
 // Used in construction of cobra.Command.

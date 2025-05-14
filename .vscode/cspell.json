@@ -366,9 +366,14 @@
     "ZOOMROOM"
   ],
   "ignorePaths": [
-    ".git/**",
+    ".dockerignore",
+    ".git/*",
     ".github/linters/.golangci.yaml",
-    "go.mod",
-    "go.sum"
+    ".gitignore",
+    ".history/*",
+    "**/*.go",
+    "**/*.mod",
+    "**/*.sum",
+    "Makefile"
   ]
 }

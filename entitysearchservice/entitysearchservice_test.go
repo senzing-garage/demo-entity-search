@@ -1,4 +1,4 @@
-package entitysearchservice
+package entitysearchservice_test
 
 import (
 	"testing"
