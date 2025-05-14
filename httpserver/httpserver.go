@@ -5,7 +5,6 @@ import (
 	"embed"
 	"fmt"
 	"io/fs"
-	"log"
 	"net/http"
 	"time"
 
@@ -228,7 +227,7 @@ func (httpServer *BasicHTTPServer) getSenzingAPIGenericMux(
 
 	srv, err := senzingrestapi.NewServer(service, httpServer.ServerOptions...)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	return srv
