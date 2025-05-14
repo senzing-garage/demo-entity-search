@@ -9,5 +9,5 @@ import (
 // ----------------------------------------------------------------------------
 
 func TestBasicHTTPServer_Serve(test *testing.T) {
-	_ = test
+	test.Parallel()
 }

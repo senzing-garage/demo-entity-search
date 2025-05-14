@@ -9,5 +9,5 @@ import (
 // ----------------------------------------------------------------------------
 
 func TestHttpServiceImpl_Handler(test *testing.T) {
-	_ = test
+	test.Parallel()
 }
