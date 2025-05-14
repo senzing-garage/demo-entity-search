@@ -13,7 +13,7 @@ linters:
     - copyloopvar
     - cyclop
     - decorder
-    # - depguard
+    - depguard
     - dogsled
     - dupl
     - dupword
@@ -24,22 +24,23 @@ linters:
     - errname
     - errorlint
     - exhaustive
-    # - exhaustruct
+    - exhaustruct
     - exptostd
     - fatcontext
-    # - forbidigo
+    - forbidigo
     - forcetypeassert
+    - funcorder
     - funlen
     - ginkgolinter
     - gocheckcompilerdirectives
-    # - gochecknoglobals
-    # - gochecknoinits
+    - gochecknoglobals
+    - gochecknoinits
     - gochecksumtype
     - gocognit
     - goconst
     - gocritic
     - gocyclo
-    # - godot
+    - godot
     - godox
     - goheader
     - gomoddirectives
@@ -51,30 +52,30 @@ linters:
     - grouper
     - iface
     - importas
-    # - inamedparam
+    - inamedparam
     - ineffassign
     - interfacebloat
     - intrange
-    # - ireturn
-    # - lll
+    - ireturn
+    - lll
     - loggercheck
     - maintidx
     - makezero
     - mirror
     - misspell
-    # - mnd
+    - mnd
     - musttag
     - nakedret
     - nestif
     - nilerr
     - nilnesserr
     - nilnil
-    # - nlreturn
+    - nlreturn
     - noctx
     - nolintlint
-    # - nonamedreturns
+    - nonamedreturns
     - nosprintfhostport
-    # - paralleltest
+    - paralleltest
     - perfsprint
     - prealloc
     - predeclared
@@ -90,9 +91,9 @@ linters:
     - staticcheck
     - tagalign
     - tagliatelle
-    # - testableexamples
+    - testableexamples
     - testifylint
-    # - testpackage
+    - testpackage
     - thelper
     - tparallel
     - unconvert
@@ -100,12 +101,15 @@ linters:
     - unused
     - usestdlibvars
     - usetesting
-    # - varnamelen
+    - varnamelen
     - wastedassign
     - whitespace
-    # - wrapcheck
-    # - wsl
+    - wrapcheck
+    - wsl
     - zerologlint
+  disable:
+    - gochecknoglobals
+    - gochecknoinits
   exclusions:
     generated: lax
     presets:
@@ -117,17 +121,48 @@ linters:
       - third_party$
       - builtin$
       - examples$
-
+  settings:
+    depguard:
+      rules:
+        prevent_unmaintained_packages:
+          list-mode: lax # allow unless explicitely denied
+          allow:
+            - github.com/stretchr/testify/*
+          deny:
+            - pkg: io/ioutil
+              desc: "replaced by io and os packages since Go 1.16: https://tip.golang.org/doc/go1.16#ioutil"
+    exhaustruct:
+      exclude:
+        - '.+/cobra\.Command$'
+        - '.+/entitysearchservice\.BasicHTTPService$'
+        - '.+/http\.Server$'
+        - '.+/httpserver\.BasicHTTPServer$'
+        - '.+/logrus\.JSONFormatter$'
+        - '.+/logrus\.TextFormatter$'
+        - '.+/senzingrestservice\.BasicSenzingRestService$'
+    ireturn:
+      allow:
+        - anon
+        - empty
+        - error
+        - log.Logger
+        - stdlib
+    mnd:
+      ignored-functions:
+        - '^logger\.Log$'
 formatters:
   enable:
     - gci
     - gofmt
-    # - gofumpt
+    - gofumpt
     - goimports
-    # - golines
+    - golines
   exclusions:
     generated: lax
     paths:
       - third_party$
       - builtin$
       - examples$
+  settings:
+    golines:
+      max-len: 120

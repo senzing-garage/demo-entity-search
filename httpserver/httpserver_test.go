@@ -1,4 +1,4 @@
-package httpserver
+package httpserver_test
 
 import (
 	"testing"
@@ -9,5 +9,5 @@ import (
 // ----------------------------------------------------------------------------
 
 func TestBasicHTTPServer_Serve(test *testing.T) {
-	_ = test
+	test.Parallel()
 }

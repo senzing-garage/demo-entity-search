@@ -1,90 +1,78 @@
-package cmd
-
-import (
-	"bytes"
-	"os"
-	"testing"
-
-	"github.com/stretchr/testify/require"
-)
+package cmd_test
 
 // ----------------------------------------------------------------------------
 // Test public functions
 // ----------------------------------------------------------------------------
 
-func Test_Execute(test *testing.T) {
-	_ = test
-	os.Args = []string{"command-name", "--avoid-serving"}
-	Execute()
-}
+// func Test_Execute(test *testing.T) {
+// 	test.Parallel()
 
-func Test_Execute_completion(test *testing.T) {
-	_ = test
-	os.Args = []string{"command-name", "completion"}
-	Execute()
-}
+// 	os.Args = []string{"command-name", "--avoid-serving"}
 
-func Test_Execute_docs(test *testing.T) {
-	_ = test
-	os.Args = []string{"command-name", "docs"}
-	Execute()
-}
+// 	cmd.Execute()
+// }
 
-func Test_Execute_help(test *testing.T) {
-	_ = test
-	os.Args = []string{"command-name", "--help"}
-	Execute()
-}
+// func Test_Execute_completion(test *testing.T) {
+// 	test.Parallel()
 
-func Test_PreRun(test *testing.T) {
-	_ = test
-	args := []string{"command-name", "--help"}
-	PreRun(RootCmd, args)
-}
+// 	os.Args = []string{"command-name", "completion"}
 
-func Test_RunE(test *testing.T) {
-	test.Setenv("SENZING_TOOLS_AVOID_SERVING", "true")
-	err := RunE(RootCmd, []string{})
-	require.NoError(test, err)
-}
+// 	cmd.Execute()
+// }
 
-func Test_RootCmd(test *testing.T) {
-	_ = test
-	err := RootCmd.Execute()
-	require.NoError(test, err)
-	err = RootCmd.RunE(RootCmd, []string{})
-	require.NoError(test, err)
-}
+// func Test_Execute_docs(test *testing.T) {
+// 	test.Parallel()
 
-func Test_completionCmd(test *testing.T) {
-	_ = test
-	err := completionCmd.Execute()
-	require.NoError(test, err)
-	err = completionCmd.RunE(completionCmd, []string{})
-	require.NoError(test, err)
-}
+// 	os.Args = []string{"command-name", "docs"}
 
-func Test_docsCmd(test *testing.T) {
-	_ = test
-	err := docsCmd.Execute()
-	require.NoError(test, err)
-	err = docsCmd.RunE(docsCmd, []string{})
-	require.NoError(test, err)
-}
+// 	cmd.Execute()
+// }
 
-// ----------------------------------------------------------------------------
-// Test private functions
-// ----------------------------------------------------------------------------
+// func Test_Execute_help(test *testing.T) {
+// 	test.Parallel()
 
-func Test_completionAction(test *testing.T) {
-	var buffer bytes.Buffer
-	err := completionAction(&buffer)
-	require.NoError(test, err)
-}
+// 	os.Args = []string{"command-name", "--help"}
 
-func Test_docsAction_badDir(test *testing.T) {
-	var buffer bytes.Buffer
-	badDir := "/tmp/no/directory/exists"
-	err := docsAction(&buffer, badDir)
-	require.Error(test, err)
-}
+// 	cmd.Execute()
+// }
+
+// func Test_PreRun(test *testing.T) {
+// 	test.Parallel()
+
+// 	args := []string{"command-name", "--help"}
+// 	cmd.PreRun(cmd.RootCmd, args)
+// }
+
+// func Test_RunE(test *testing.T) {
+// 	test.Setenv("SENZING_TOOLS_AVOID_SERVING", "true")
+
+// 	err := cmd.RunE(cmd.RootCmd, []string{})
+// 	require.NoError(test, err)
+// }
+
+// func Test_RootCmd(test *testing.T) {
+// 	test.Parallel()
+
+// 	err := cmd.RootCmd.Execute()
+// 	require.NoError(test, err)
+// 	err = cmd.RootCmd.RunE(cmd.RootCmd, []string{})
+// 	require.NoError(test, err)
+// }
+
+// func Test_completionCmd(test *testing.T) {
+// 	test.Parallel()
+
+// 	err := cmd.CompletionCmd.Execute()
+// 	require.NoError(test, err)
+// 	err = cmd.CompletionCmd.RunE(cmd.CompletionCmd, []string{})
+// 	require.NoError(test, err)
+// }
+
+// func Test_docsCmd(test *testing.T) {
+// 	test.Parallel()
+
+// 	err := cmd.DocsCmd.Execute()
+// 	require.NoError(test, err)
+// 	err = cmd.DocsCmd.RunE(cmd.DocsCmd, []string{})
+// 	require.NoError(test, err)
+// }

@@ -6,15 +6,19 @@ import (
 )
 
 func addIncomingRequestLogging(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	return http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
 		then := time.Now()
+
 		defer func() {
 			if recovered := recover(); recovered != nil {
-				createRequestLog(r).Info("request errored out")
+				createRequestLog(request).Info("request errored out")
 			}
 		}()
-		next.ServeHTTP(w, r)
+		next.ServeHTTP(writer, request)
+
 		duration := time.Since(then)
-		createRequestLog(r).Infof("request completed in %vms", float64(duration.Nanoseconds())/1000000)
+		createRequestLog(
+			request,
+		).Infof("request completed in %vms", float64(duration.Nanoseconds())/NanosecondsPerMillisecond)
 	})
 }
