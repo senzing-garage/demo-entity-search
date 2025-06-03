@@ -91,7 +91,7 @@ func RunE(_ *cobra.Command, _ []string) error {
 
 	err := httpServer.Serve(ctx)
 
-	return wraperror.Errorf(err, "cmd.RunE error: %w", err)
+	return wraperror.Errorf(err, wraperror.NoMessage)
 }
 
 // Used in construction of cobra.Command.
