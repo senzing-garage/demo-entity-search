@@ -4,7 +4,7 @@ go 1.24
 
 require (
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
-	github.com/senzing-garage/go-cmdhelping v0.3.4
+	github.com/senzing-garage/go-cmdhelping v0.3.5
 	github.com/senzing-garage/go-helpers v0.6.13
 	github.com/senzing-garage/go-observing v0.3.4
 	github.com/senzing-garage/go-rest-api-service v0.10.6
