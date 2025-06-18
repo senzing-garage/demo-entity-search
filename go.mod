@@ -1,13 +1,13 @@
 module github.com/senzing-garage/demo-entity-search
 
-go 1.24
+go 1.24.4
 
 require (
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/senzing-garage/go-cmdhelping v0.3.6
 	github.com/senzing-garage/go-helpers v0.6.13
 	github.com/senzing-garage/go-observing v0.3.5
-	github.com/senzing-garage/go-rest-api-service v0.10.7
+	github.com/senzing-garage/go-rest-api-service v0.10.8
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
@@ -25,7 +25,7 @@ require (
 	github.com/go-faster/yaml v0.4.6 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
+	github.com/go-viper/mapstructure/v2 v2.3.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
@@ -37,13 +37,13 @@ require (
 	github.com/segmentio/asm v1.2.0 // indirect
 	github.com/senzing-garage/go-logging v1.5.3 // indirect
 	github.com/senzing-garage/go-messaging v1.5.3 // indirect
-	github.com/senzing-garage/go-sdk-abstract-factory v0.9.10 // indirect
-	github.com/senzing-garage/sz-sdk-go v0.15.4 // indirect
-	github.com/senzing-garage/sz-sdk-go-core v0.9.6 // indirect
-	github.com/senzing-garage/sz-sdk-go-grpc v0.9.6 // indirect
-	github.com/senzing-garage/sz-sdk-go-mock v0.8.8 // indirect
-	github.com/senzing-garage/sz-sdk-json-type-definition v0.2.8 // indirect
-	github.com/senzing-garage/sz-sdk-proto v0.8.3 // indirect
+	github.com/senzing-garage/go-sdk-abstract-factory v0.9.11 // indirect
+	github.com/senzing-garage/sz-sdk-go v0.15.6 // indirect
+	github.com/senzing-garage/sz-sdk-go-core v0.9.7 // indirect
+	github.com/senzing-garage/sz-sdk-go-grpc v0.9.7 // indirect
+	github.com/senzing-garage/sz-sdk-go-mock v0.8.9 // indirect
+	github.com/senzing-garage/sz-sdk-json-type-definition v0.2.9 // indirect
+	github.com/senzing-garage/sz-sdk-proto v0.8.5 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.14.0 // indirect
 	github.com/spf13/cast v1.9.2 // indirect
@@ -55,11 +55,11 @@ require (
 	go.opentelemetry.io/otel/trace v1.36.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
-	golang.org/x/exp v0.0.0-20250531010427-b6e5de432a8b // indirect
-	golang.org/x/net v0.40.0 // indirect
-	golang.org/x/sync v0.14.0 // indirect
+	golang.org/x/exp v0.0.0-20250606033433-dcc06ee1d476 // indirect
+	golang.org/x/net v0.41.0 // indirect
+	golang.org/x/sync v0.15.0 // indirect
 	golang.org/x/sys v0.33.0 // indirect
-	golang.org/x/text v0.25.0 // indirect
+	golang.org/x/text v0.26.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250603155806-513f23925822 // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
