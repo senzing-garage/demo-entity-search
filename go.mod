@@ -7,7 +7,7 @@ require (
 	github.com/senzing-garage/go-cmdhelping v0.3.6
 	github.com/senzing-garage/go-helpers v0.6.13
 	github.com/senzing-garage/go-observing v0.3.6
-	github.com/senzing-garage/go-rest-api-service v0.10.8
+	github.com/senzing-garage/go-rest-api-service v0.10.9
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
@@ -37,25 +37,25 @@ require (
 	github.com/segmentio/asm v1.2.0 // indirect
 	github.com/senzing-garage/go-logging v1.5.3 // indirect
 	github.com/senzing-garage/go-messaging v1.5.3 // indirect
-	github.com/senzing-garage/go-sdk-abstract-factory v0.9.11 // indirect
-	github.com/senzing-garage/sz-sdk-go v0.15.6 // indirect
-	github.com/senzing-garage/sz-sdk-go-core v0.9.7 // indirect
-	github.com/senzing-garage/sz-sdk-go-grpc v0.9.7 // indirect
-	github.com/senzing-garage/sz-sdk-go-mock v0.8.9 // indirect
-	github.com/senzing-garage/sz-sdk-json-type-definition v0.2.9 // indirect
-	github.com/senzing-garage/sz-sdk-proto v0.8.5 // indirect
+	github.com/senzing-garage/go-sdk-abstract-factory v0.9.12 // indirect
+	github.com/senzing-garage/sz-sdk-go v0.15.7 // indirect
+	github.com/senzing-garage/sz-sdk-go-core v0.9.8 // indirect
+	github.com/senzing-garage/sz-sdk-go-grpc v0.9.8 // indirect
+	github.com/senzing-garage/sz-sdk-go-mock v0.8.10 // indirect
+	github.com/senzing-garage/sz-sdk-json-type-definition v0.2.10 // indirect
+	github.com/senzing-garage/sz-sdk-proto v0.8.7 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.14.0 // indirect
 	github.com/spf13/cast v1.9.2 // indirect
 	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
-	go.opentelemetry.io/otel v1.36.0 // indirect
-	go.opentelemetry.io/otel/metric v1.36.0 // indirect
-	go.opentelemetry.io/otel/trace v1.36.0 // indirect
+	go.opentelemetry.io/otel v1.37.0 // indirect
+	go.opentelemetry.io/otel/metric v1.37.0 // indirect
+	go.opentelemetry.io/otel/trace v1.37.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
-	golang.org/x/exp v0.0.0-20250606033433-dcc06ee1d476 // indirect
+	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b // indirect
 	golang.org/x/net v0.41.0 // indirect
 	golang.org/x/sync v0.15.0 // indirect
 	golang.org/x/sys v0.33.0 // indirect
