@@ -14,6 +14,7 @@ func addIncomingRequestLogging(next http.Handler) http.Handler {
 				createRequestLog(request).Info("request errored out")
 			}
 		}()
+
 		next.ServeHTTP(writer, request)
 
 		duration := time.Since(then)
