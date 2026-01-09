@@ -61,7 +61,6 @@ The application follows a layered architecture:
 - **cmd/** - Cobra CLI commands. `root.go` defines the main command that starts the HTTP server. OS-specific context variables are in `context_*.go` files.
 
 - **httpserver/** - HTTP server implementation (`BasicHTTPServer`). Sets up routes:
-
   - `/api/` - Senzing REST API
   - `/entity-search/` - Entity search UI
   - `/entity-search/api/` - Reverse proxy to Senzing API
