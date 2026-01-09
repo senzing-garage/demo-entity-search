@@ -9,6 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Prerequisites
 
 The Senzing C library must be installed before development:
+
 - `/opt/senzing/er/lib` - Shared objects
 - `/opt/senzing/er/sdk/c` - SDK header files
 - `/etc/opt/senzing` - Configuration
@@ -60,6 +61,7 @@ The application follows a layered architecture:
 - **cmd/** - Cobra CLI commands. `root.go` defines the main command that starts the HTTP server. OS-specific context variables are in `context_*.go` files.
 
 - **httpserver/** - HTTP server implementation (`BasicHTTPServer`). Sets up routes:
+
   - `/api/` - Senzing REST API
   - `/entity-search/` - Entity search UI
   - `/entity-search/api/` - Reverse proxy to Senzing API
@@ -89,6 +91,7 @@ The application follows a layered architecture:
 ## Testing Notes
 
 Tests require setup to create a SQLite database:
+
 ```bash
 make setup  # Creates /tmp/sqlite/G2C.db from testdata
 ```
