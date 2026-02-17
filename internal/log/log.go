@@ -1,4 +1,4 @@
-package log
+package log //revive:disable-line var-naming
 
 import (
 	"os"

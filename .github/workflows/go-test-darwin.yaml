@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        go: ["1.24"]
+        go: ["1.25"]
         os: [macos-latest]
         senzingsdk-version: [production-v4, staging-v4]
     timeout-minutes: 30
@@ -94,7 +94,7 @@ jobs:
     needs: go-test-darwin
     permissions:
       contents: read
-    uses: senzing-factory/build-resources/.github/workflows/go-coverage.yaml@v3
+    uses: senzing-factory/build-resources/.github/workflows/go-coverage.yaml@v4
     with:
       coverage-config: ./.github/coverage/testcoverage.yaml
       profile: "cover-production-v4.out,cover-staging-v4.out"
