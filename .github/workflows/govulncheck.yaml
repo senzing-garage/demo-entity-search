@@ -1,3 +1,4 @@
+---
 name: Govulncheck
 
 on:
@@ -43,7 +44,7 @@ jobs:
           go-version: ${{ matrix.go }}
 
       - name: Install Senzing SDK
-        uses: senzing-factory/github-action-install-senzing-sdk@v4
+        uses: senzing-factory/github-action-install-senzing-sdk@v5
         with:
           senzingsdk-version: ${{ matrix.senzingsdk-version }}
 
