@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/senzing-garage/go-cmdhelping v0.3.8
-	github.com/senzing-garage/go-helpers v0.6.16
+	github.com/senzing-garage/go-helpers v0.6.17
 	github.com/senzing-garage/go-observing v0.3.7
 	github.com/senzing-garage/go-rest-api-service v0.10.12
 	github.com/sirupsen/logrus v1.10.2
