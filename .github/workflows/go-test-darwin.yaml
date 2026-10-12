@@ -9,107 +9,53 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
-env:
-  SENZING_LOG_LEVEL: TRACE
-  SENZING_TOOLS_DATABASE_URL: sqlite3://na:na@nowhere/tmp/sqlite/G2C.db
-
 permissions: {}
 
 jobs:
-  sdk-versions:
-    runs-on: ubuntu-latest
-    outputs:
-      senzingsdk-versions: ${{ steps.cfg.outputs.senzingsdk-versions }}
-    steps:
-      - id: cfg
-        uses: senzing-factory/build-resources/sdk-versions@v4
-
   go-test-darwin:
-    name: "Go test with Senzing: ${{ matrix.senzingsdk-version }}; OS: ${{ matrix.os }}; Go: ${{ matrix.go }}"
-    needs: sdk-versions
+    name: "Go test with OS: ${{ matrix.os }}; Go: ${{ matrix.go }}"
     permissions:
       contents: read
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        go: ["1.26"]
+        go: ["1.27"]
         os: [macos-latest]
-        senzingsdk-version: ${{ fromJSON(needs.sdk-versions.outputs.senzingsdk-versions) }}
     timeout-minutes: 30
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
       - name: Setup go ${{ matrix.go }}
-        uses: actions/setup-go@v7.0.0
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
           go-version: ${{ matrix.go }}
 
       - name: Set up gotestfmt
-        uses: gotesttools/gotestfmt-action@v2.3.0
+        uses: gotesttools/gotestfmt-action@eba2ac97f623e866e7b1b117c99f18b43cd36d18 # v2.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Mint staging tap token
-        if: matrix.senzingsdk-version != 'production-v4'
-        id: staging-token
-        uses: actions/create-github-app-token@v3.2.0
-        with:
-          client-id: ${{ secrets.SENZINGSDK_STAGING_CLIENT_ID }}
-          private-key: ${{ secrets.SENZINGSDK_STAGING_APP_KEY }}
-          owner: senzing-factory # zizmor: ignore[github-app]
-          repositories: homebrew-senzingsdk-staging
-          permission-contents: read
-
-      - name: Install Senzing SDK
-        uses: senzing-factory/github-action-install-senzing-sdk@v5
-        with:
-          senzingsdk-version: ${{ matrix.senzingsdk-version }}
-          senzingsdk-token: ${{ steps.staging-token.outputs.token || github.token }}
-
-      - name: Set environment variables
-        run: |
-          SENZING_PATH="${HOME}/senzing"
-          {
-            echo "SENZING_PATH=${SENZING_PATH}"
-            echo "LD_LIBRARY_PATH=${SENZING_PATH}/er/lib:/opt/homebrew/lib"
-            echo "DYLD_LIBRARY_PATH=${SENZING_PATH}/er/lib:/opt/homebrew/lib"
-            echo  CGO_CFLAGS="-g -I${SENZING_PATH}/er/sdk/c"
-            echo  CGO_LDFLAGS="-L${SENZING_PATH}/er/lib -lSz -Wl,-no_warn_duplicate_libraries"
-          } >> "$GITHUB_ENV"
-
-      - name: Copy /etc files
-        run: |
-          sudo mkdir -p "${SENZING_PATH}/etc"
-          sudo cp testdata/senzing-license/g2.lic "${SENZING_PATH}/er/etc/g2.lic"
-
-      - name: Copy test database files
-        run: |
-          mkdir -p /tmp/sqlite
-          cp testdata/sqlite/G2C.db /tmp/sqlite/
-
       - name: Run go test
-        env:
-          SENZING_SDK_VERSION: ${{ matrix.senzingsdk-version }}
         run: |
-          go test -exec "${GITHUB_WORKSPACE}/bin/macos_exec_dyld.sh" -json -v -p 1 -coverprofile="./cover-${SENZING_SDK_VERSION}.out" -covermode=atomic -coverpkg=./... ./...  2>&1 | tee "/tmp/gotest-${SENZING_SDK_VERSION}.log" | gotestfmt
+          go test -json -v -p 1 -coverprofile=./cover.out -covermode=atomic -coverpkg=./... ./...  2>&1 | tee /tmp/gotest.log | gotestfmt
 
       - name: Store coverage file
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: "cover-${{ matrix.senzingsdk-version }}.out"
-          path: "./cover-${{ matrix.senzingsdk-version }}.out"
+          name: cover.out
+          path: ./cover.out
 
       - name: Upload test log
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
-          name: "test-log-${{ matrix.senzingsdk-version }}"
-          path: "/tmp/gotest-${{ matrix.senzingsdk-version }}.log"
+          name: test-log
+          path: /tmp/gotest.log
           if-no-files-found: error
 
   coverage:
@@ -120,4 +66,3 @@ jobs:
     uses: senzing-factory/build-resources/.github/workflows/go-coverage.yaml@v4
     with:
       coverage-config: ./.github/coverage/testcoverage.yaml
-      profile: "cover-production-v4.out,cover-staging-v4.out"

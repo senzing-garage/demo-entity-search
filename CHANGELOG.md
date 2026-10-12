@@ -9,6 +9,23 @@ This project adheres to [Semantic Versioning].
 
 -
 
+## [0.3.0] - 2026-10-12
+
+### Changed in 0.3.0
+
+- Update to Go 1.27.1
+- Sync repository setup files with template-go `v0.5.0`
+- Update dependencies:
+  - github.com/senzing-garage/go-cmdhelping v0.4.0
+  - github.com/senzing-garage/go-helpers v0.7.0
+
+### Removed in 0.3.0
+
+- Dependency on the deprecated and archived `github.com/senzing-garage/go-rest-api-service`
+- `/api/` and `/entity-search/api/` Senzing REST API routes
+- `httpserver.BasicHTTPServer` fields that only configured the Senzing REST API
+- Senzing SDK requirement for building, testing and running
+
 ## [0.2.12] - 2026-01-09
 
 ### Changed in 0.2.12
