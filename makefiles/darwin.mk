@@ -4,12 +4,7 @@
 # Variables
 # -----------------------------------------------------------------------------
 
-SENZING_DIR ?= /opt/senzing/er
-SENZING_TOOLS_SENZING_DIRECTORY ?= $(SENZING_DIR)
-LD_LIBRARY_PATH ?= $(SENZING_TOOLS_SENZING_DIRECTORY)/lib:$(SENZING_TOOLS_SENZING_DIRECTORY)/lib/macos
-DYLD_LIBRARY_PATH := $(LD_LIBRARY_PATH)
 PATH := $(MAKEFILE_DIRECTORY)/bin:/$(HOME)/go/bin:$(PATH)
-SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@nowhere/tmp/sqlite/G2C.db
 
 # -----------------------------------------------------------------------------
 # OS specific targets
@@ -17,15 +12,12 @@ SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@nowhere/tmp/sqlite/G2C.db
 
 .PHONY: clean-osarch-specific
 clean-osarch-specific:
-	@docker rm  --force $(DOCKER_CONTAINER_NAME) 2> /dev/null || true
-	@docker rmi --force $(DOCKER_IMAGE_NAME) $(DOCKER_BUILD_IMAGE_NAME) $(DOCKER_SUT_IMAGE_NAME) 2> /dev/null || true
 	@rm -f  $(GOPATH)/bin/$(PROGRAM_NAME) || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/.coverage || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.html || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.out || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/cover.out || true
 	@rm -fr $(TARGET_DIRECTORY) || true
-	@rm -fr /tmp/sqlite || true
 	@pkill godoc || true
 
 
@@ -36,9 +28,12 @@ coverage-osarch-specific:
 	@open file://$(MAKEFILE_DIRECTORY)/coverage.html
 
 
+# GOLANGCI_LINT_VERSION comes from makefiles/versions.mk. The installer is
+# fetched at the SAME tag it installs -- it used to come from `main`, a moving
+# branch piped into `sh`.
 .PHONY: dependencies-for-development-osarch-specific
 dependencies-for-development-osarch-specific:
-	@curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/main/install.sh | sh -s -- -b $(shell go env GOPATH)/bin latest
+	@curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/$(GOLANGCI_LINT_VERSION)/install.sh | sh -s -- -b $(shell go env GOPATH)/bin $(GOLANGCI_LINT_VERSION)
 
 
 .PHONY: documentation-osarch-specific
@@ -53,26 +48,24 @@ hello-world-osarch-specific:
 	$(info Hello World, from darwin.)
 
 
-.PHONY: package-osarch-specific
-package-osarch-specific:
-	$(info No packaging for darwin.)
-
-
 .PHONY: run-osarch-specific
 run-osarch-specific:
-	@go run -exec macos_exec_dyld.sh main.go
+	@go run main.go
 
 
 .PHONY: setup-osarch-specific
 setup-osarch-specific:
-	@mkdir /tmp/sqlite
-	@cp testdata/sqlite/G2C.db /tmp/sqlite/G2C.db
-	@mkdir -p $(TARGET_DIRECTORY)/$(GO_OS)-$(GO_ARCH) || true
+	$(info No setup required.)
 
 
 .PHONY: test-osarch-specific
 test-osarch-specific:
-	@go test -exec macos_exec_dyld.sh -json -v -p 1 ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
+	@go test -json -v -p 1 ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
+
+
+.PHONY: test-verbose-osarch-specific
+test-verbose-osarch-specific:
+	@go test -v -p 1 ./...
 
 # -----------------------------------------------------------------------------
 # Makefile targets supported only by this platform.
